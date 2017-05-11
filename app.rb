@@ -141,3 +141,9 @@ patch '/tag/:id/recipe' do
   end
   redirect ('/tag/' + (params[:id]))
 end
+
+delete '/tag/:id' do
+  tag = Tag.find(params[:id])
+  Tag.where(id: params[:id]).destroy_all()
+  redirect '/'
+end
